@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
               msg: 'Ce nom est dejà pris !'
             },
             validate: {
-              isEmpty: { msg: 'Le nom d\'un pokemon ne doit pas être vide !' },
+              notEmpty: { msg: 'Le nom d\'un pokemon ne doit pas être vide !' },
               notNull: { msg: 'Le nom d\'un pokemon est une propriete requise !' }
             }
           },
