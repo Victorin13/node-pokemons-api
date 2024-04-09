@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const sequelize = require('./src/db/sequelize');
 
 const app = express();
-const port = 3030;
+const port = process.env.PORT || 3030;
 
 app
     .use(favicon(__dirname + '/favicon.ico'))
@@ -14,6 +14,10 @@ app
 
 // Connexion à la base de donnees
 sequelize.initDb();
+
+app.get('/', (req, res) => {
+    res.json('Hello Heroku !')
+})
 
 // Points de terminaisons
 require('./src/routes/findAllPokemons')(app);

@@ -4,11 +4,13 @@
   "description": "An awesome Rest API to handle some pokemons !",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "NODE_ENV=production node app.js",
+    "dev": "NODE_ENV=development nodemon app.js"
   },
   "author": "victorinvodinou@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "morgan": "^1.10.0",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "express": "^4.18.2",
@@ -18,7 +20,6 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "morgan": "^1.10.0",
     "nodemon": "^3.0.3"
   }
 }
