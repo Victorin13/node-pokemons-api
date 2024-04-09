@@ -96,6 +96,19 @@ module.exports = (sequelize, DataTypes) => {
           timestamps: true,
           createdAt: 'created',
           updatedAt: false
+        },
+        {
+          hooks: {
+            beforeFind: (options) => {
+              // Vérifiez si l'option where est définie et contient un ID
+              if (options.where && options.where.id) {
+                if (isNaN(options.where.id)) {
+                  // Si l'ID n'est pas un entier, lancez une erreur
+                  throw new Sequelize.ValidationError('L\'identifiant du Pokémon doit être un entier.');
+                }
+              }
+            }
+          }
         }
     )
 }
